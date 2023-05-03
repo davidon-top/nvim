@@ -168,7 +168,12 @@ return require("packer").startup(function(use)
             require("glow").setup()
         end
     }
-    use {"tpope/vim-surround"}
+    use {"kylechui/nvim-surround",
+        config = function ()
+            require("nvim-surround").setup({})
+        end
+    }
+    -- use {"tpope/vim-surround"}
     use {
         "phaazon/hop.nvim",
         event = "BufRead",
