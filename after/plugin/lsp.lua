@@ -62,6 +62,7 @@ local on_attach = function(client, bufnr)
 
     if client.server_capabilities.documentSymbolProvider then
         navic.attach(client, bufnr)
+        require("nvim-navbuddy").attach(client, bufnr)
     end
 
     nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')

@@ -345,6 +345,25 @@ return require("packer").startup(function(use)
         end
     }
     use {
+        "SmiteshP/nvim-navbuddy",
+        requires = {"neovim/nvim-lspconfig",
+        "SmiteshP/nvim-navic",
+        "MunifTanjim/nui.nvim",
+        "numToStr/Comment.nvim",
+        "nvim-telescope/telescope.nvim"},
+        config = function ()
+            require("nvim-navbuddy").setup({
+                window = {border="rounded",},
+            })
+        end,
+    }
+    use {
+        'rmagatti/goto-preview',
+        config = function()
+            require('goto-preview').setup {}
+        end
+    }
+    use {
         "felipec/vim-sanegx",
         event = "BufRead",
     }

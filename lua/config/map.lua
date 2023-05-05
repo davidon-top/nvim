@@ -22,7 +22,8 @@ local keys = {
         n = {function () vim.lsp.buf.rename() end, "rename"},
         h = {function () vim.lsp.buf.hover() end, "Hover"},
         t = {function () vim.lsp.buf.type_definition() end,"Type Definition"},
-        s = {require("telescope.builtin").lsp_document_symbols, "Document Symbols"},
+        s = {"<cmd>Navbuddy<cr>", "Navbuddy"},
+        -- s = {require("telescope.builtin").lsp_document_symbols, "Document Symbols"},
         o = {
             name = "Copilot",
             a = {"<cmd>Copilot suggestion accept<cr>", "Accept"},
@@ -40,6 +41,14 @@ local keys = {
                 p = {"<cmd>Copilot panel jump_prev<cr>", "Previous"},
                 a = {"<cmd>Copilot panel accept<cr>", "Accept"},
             },
+        },
+        g = {
+            name = "Goto Preview",
+            d = {function () require('goto-preview').goto_preview_definition() end, "Definition"},
+            r = {function () require('goto-preview').goto_preview_references() end, "References"},
+            t = {function () require("goto-preview").goto_preview_type_definitions() end, "Type"},
+            i = {function () require("goto-preview").goto_preview_implementation() end, "Implementation"},
+            c = {function () require("goto-preview").close_all_win() end, "Close"},
         },
     },
     q = {
