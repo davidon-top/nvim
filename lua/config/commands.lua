@@ -21,6 +21,8 @@ vim.api.nvim_create_user_command("OP", function ()
                 local selection = action_state.get_selected_entry()
                 selection = selection[1]
                 vim.cmd("cd $HOME/projects/" .. selection)
+                vim.cmd("Alpha")
+                vim.cmd("BWipeout other")
             end)
             return true
         end
@@ -29,5 +31,7 @@ end, {})
 
 vim.api.nvim_create_user_command("Config", function ()
     vim.cmd("cd $HOME/.config/nvim")
+    vim.cmd("Alpha")
+    vim.cmd("BWipeout other")
     vim.cmd("NeoTreeFloatToggle")
 end, {})

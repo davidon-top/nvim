@@ -6,11 +6,18 @@ local wk = require("which-key")
 local keys = {
     a = {"<cmd>Copilot suggestion accept<cr>", "Copilot"},
     e = {
-        name = "file explorers",
+        name = "Toggle",
         e = {"<cmd>NeoTreeFloatToggle<CR>", "NeoTree"},
-        d = {vim.cmd.NvimTreeOpen, "NvimTree"},
-        r = {vim.cmd.NERDTreeTabsOpen, "NERDTree"},
         w = {vim.cmd.Ex, "netrw"},
+        l = {
+            name = "LSP",
+            k = {"<cmd>LspStop<cr>", "Stop"},
+            s = {"<cmd>LspStart<cr>", "Start"},
+        },
+        g = {"<cmd>NeoTreeFloatToggle git_status<CR>", "Git Status"},
+        b = {"<cmd>NeoTreeFloatToggle buffers<CR>", "Buffers"},
+        c = {"<cmd>NeoTreeClose<CR>" , "Close"},
+        s = {"<cmd>Navbuddy<CR>" , "Symbols"},
     },
     c = {
         name = "LSP",

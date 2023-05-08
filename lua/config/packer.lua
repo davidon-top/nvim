@@ -120,9 +120,15 @@ return require("packer").startup(function(use)
     use "lewis6991/gitsigns.nvim"
 
     -- misc
+    use 'kazhala/close-buffers.nvim'
     use {"VonHeikemen/fine-cmdline.nvim",
         requires = {{"MunifTanjim/nui.nvim"}},
         config = function()
+            require("fine-cmdline").setup({
+                cmdline = {
+                    prompt = ">",
+                }
+            })
             vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
         end
     }
@@ -179,8 +185,8 @@ return require("packer").startup(function(use)
         event = "BufRead",
         config = function()
             require("hop").setup()
-            vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
-            vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
+            -- vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
+            -- vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
         end,
     }
     use {
