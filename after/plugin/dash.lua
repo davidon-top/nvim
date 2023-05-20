@@ -31,8 +31,8 @@ local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = header
 dashboard.section.buttons.val = {
     dashboard.button("SPC e e", " File Tree", ":NeoTreeFloatToggle<cr>"),
-    dashboard.button("OP", "Open Project", ":OP<cr>"),
-    dashboard.button("Config", "Open Config", ":Config<cr>"),
+    dashboard.button("op", "Open Project", ":OP<cr>"),
+    dashboard.button("oc", "Open Config", ":Config<cr>"),
 }
 
 -- dashboard.section.footer.opts.hl = "Constant"

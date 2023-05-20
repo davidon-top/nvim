@@ -10,7 +10,7 @@ vim.api.nvim_create_user_command("OP", function ()
         folders[i] = string.match(string.match(folder, "[^/]*/$"), "^[^/]*")
     end
     pickers.new({}, {
-        prompt_title = "Open folder",
+        prompt_title = "Open project",
         finder = finders.new_table {
             results = folders
         },
@@ -21,6 +21,31 @@ vim.api.nvim_create_user_command("OP", function ()
                 local selection = action_state.get_selected_entry()
                 selection = selection[1]
                 vim.cmd("cd $HOME/projects/" .. selection)
+                vim.cmd("Alpha")
+                vim.cmd("BWipeout other")
+            end)
+            return true
+        end
+    }):find()
+end, {})
+
+vim.api.nvim_create_user_command("OD", function ()
+    local folders = vim.fn.systemlist("\\ls -d */")
+    for i, folder in ipairs(folders) do
+        folders[i] = string.match(string.match(folder, "[^/]*/$"), "^[^/]*")
+    end
+    pickers.new({}, {
+        prompt_title = "Open directory",
+        finder = finders.new_table {
+            results = folders
+        },
+        sorter = conf.generic_sorter({}),
+        attach_mappings = function (prompt_bufnr, map)
+            actions.select_default:replace(function ()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                selection = selection[1]
+                vim.cmd("cd " .. selection)
                 vim.cmd("Alpha")
                 vim.cmd("BWipeout other")
             end)

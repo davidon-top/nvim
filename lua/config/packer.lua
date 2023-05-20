@@ -120,6 +120,23 @@ return require("packer").startup(function(use)
     use "lewis6991/gitsigns.nvim"
 
     -- misc
+    use {
+      'stevearc/oil.nvim',
+      config = function() require('oil').setup({
+            columns = {
+                "icon",
+                "permissions",
+                "size",
+            },
+            keymap = {
+                ["<Esc>"] = "actions.close",
+            },
+            view_options = {
+                show_hidden = true,
+            },
+        }) end
+    }
+    use {"ThePrimeagen/vim-be-good"}
     use 'kazhala/close-buffers.nvim'
     use {"VonHeikemen/fine-cmdline.nvim",
         requires = {{"MunifTanjim/nui.nvim"}},

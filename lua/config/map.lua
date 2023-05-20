@@ -18,6 +18,7 @@ local keys = {
         b = {"<cmd>NeoTreeFloatToggle buffers<CR>", "Buffers"},
         c = {"<cmd>NeoTreeClose<CR>" , "Close"},
         s = {"<cmd>Navbuddy<CR>" , "Symbols"},
+        o = {function () require("oil").open_float(vim.fn.getcwd()) end, "Oil"},
     },
     c = {
         name = "LSP",
@@ -98,6 +99,12 @@ local keys = {
             vim.opt.nu = true
             vim.opt.relativenumber = true
         end, "Fix number and relative numbers"},
+        m = {function ()
+            vim.cmd[[
+                highlight CursorColumn guibg=none ctermbg=none
+                highlight link CursorColumn CursorLine
+            ]]
+        end, "Fix cursor highlight"},
     },
     h = {
         name = "Hop",
