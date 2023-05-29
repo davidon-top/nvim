@@ -116,6 +116,11 @@ mason_lspconfig.setup_handlers {
     end,
 }
 
+require("lspconfig").nimls.setup{
+    cmd = {"nimlsp", "--log", "/tmp/nimlsp.log"},
+    on_attach = on_attach,
+}
+
 -- lspinfo
 require('fidget').setup()
 

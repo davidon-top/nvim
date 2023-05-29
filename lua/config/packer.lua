@@ -120,6 +120,8 @@ return require("packer").startup(function(use)
     use "lewis6991/gitsigns.nvim"
 
     -- misc
+    use {"s1n7ax/nvim-window-picker"}
+    use {"echasnovski/mini.nvim"}
     use {
       'stevearc/oil.nvim',
       config = function() require('oil').setup({
@@ -400,6 +402,10 @@ return require("packer").startup(function(use)
       }
 
     -- lenguage specific
+    -- nim
+    use {"alaviss/nim.nvim"}
+    -- use {"zah/nim.vim"}
+
     -- csv
     use {
         'cameron-wags/rainbow_csv.nvim',
@@ -441,6 +447,21 @@ return require("packer").startup(function(use)
 
     -- zig
     use "ziglang/zig.vim"
+    use({
+      "NTBBloodbath/zig-tools.nvim",
+      -- Load zig-tools.nvim only in Zig buffers
+      ft = "zig",
+      config = function()
+        -- Initialize with default config
+        require("zig-tools").setup({
+                integrations = {
+                    zls = {
+                        hints = true,
+                    }
+                }
+            })
+      end,
+    })
 
     -- java
     use "mfussenegger/nvim-jdtls"
@@ -472,6 +493,9 @@ return require("packer").startup(function(use)
 
     -- themes
     use "xiyaowong/transparent.nvim"
+
+    -- f#
+    use {"adelarsq/neofsharp.vim"}
 
 
     use "sainnhe/gruvbox-material"

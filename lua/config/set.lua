@@ -49,3 +49,6 @@ vim.o.mouse = "a"
 vim.opt.showmode = false
 
 vim.o.completeopt = "menuone,noselect"
+
+-- idfk pls fix nim
+vim.opt.path = vim.opt.path + "/home/d/.nimble/bin/**"
