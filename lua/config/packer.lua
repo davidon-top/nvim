@@ -120,6 +120,18 @@ return require("packer").startup(function(use)
     use "lewis6991/gitsigns.nvim"
 
     -- misc
+    -- use {"simrat39/inlay-hints.nvim",
+    --     config = {
+    --         require("inlay-hints").setup({
+    --             renderer = "eol"
+    --         })
+    --     },
+    -- }
+    use {"lvimuser/lsp-inlayhints.nvim",
+        config = {
+            require("lsp-inlayhints").setup()
+        }
+    }
     use {"s1n7ax/nvim-window-picker"}
     use {"echasnovski/mini.nvim"}
     use {
@@ -496,6 +508,8 @@ return require("packer").startup(function(use)
 
     -- f#
     use {"adelarsq/neofsharp.vim"}
+    use {"autozimu/LanguageClient-neovim", branch = "next", run = "bash install.sh"}
+    use {"ionide/Ionide-vim"}
 
 
     use "sainnhe/gruvbox-material"

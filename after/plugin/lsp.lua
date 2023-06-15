@@ -1,3 +1,5 @@
+-- local ih = require("inlay-hints")
+
 require('neodev').setup()
 -- vim.lsp.ensure_installed({
 --     "clangd",
@@ -60,6 +62,9 @@ local on_attach = function(client, bufnr)
       vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
     end
 
+    -- ih.on_attach(client, bufnr)
+    require("lsp-inlayhints").on_attach(client, bufnr)
+
     if client.server_capabilities.documentSymbolProvider then
         navic.attach(client, bufnr)
         require("nvim-navbuddy").attach(client, bufnr)
@@ -118,6 +123,11 @@ mason_lspconfig.setup_handlers {
 
 require("lspconfig").nimls.setup{
     cmd = {"nimlsp", "--log", "/tmp/nimlsp.log"},
+    on_attach = on_attach,
+}
+
+require("lspconfig").zls.setup{
+    cmd = {"zls"},
     on_attach = on_attach,
 }
 
